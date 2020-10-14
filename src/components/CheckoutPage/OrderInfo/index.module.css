@@ -1,0 +1,37 @@
+.orderInfo {
+	padding: 20px 10px 30px 30px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
+	border-radius: 8px;
+	width: 300px;
+}
+
+.orderInfo__list {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.orderInfo__item {
+	margin-bottom: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.orderInfo__item__info {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+.orderInfo__item__name {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--main);
+}
+
+.orderInfo__item__qty {
+	font-size: 13px;
+	color: var(--grey-97);
+}

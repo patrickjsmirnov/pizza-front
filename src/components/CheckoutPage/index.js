@@ -8,6 +8,7 @@ import { addToCart } from "../../redux/actions/cart";
 import {CurrencyContext} from "../../context/currencyContext";
 
 // import CartItem from "./CartItem";
+import OrderInfo from "./OrderInfo";
 
 export default function CheckoutPage(props) {
   const dispatch = useDispatch()
@@ -27,6 +28,8 @@ export default function CheckoutPage(props) {
   return (
     <div className={ styles.checkoutPage }>
       <h1 className={ styles.checkoutPage__title }>Checkout Page</h1>
+
+      <OrderInfo/>
 
     </div>
   )
