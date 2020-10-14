@@ -1,5 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main: #30344a;
+  --grey-97: #979aa8;
+  --grey-6b: #6b6e82;
+  --blue: #488de1;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   text-align: center;
+}
+
+.App-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
 }
 
 .App-logo {
@@ -14,12 +39,13 @@
 }
 
 .App-header {
-  min-height: 100vh;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  background-color: #ffcdd2;
 }
 
 .App-link {

@@ -1,0 +1,12 @@
+.cartPage {
+
+}
+
+.cartPage__list {
+	display: flex;
+	flex-direction: column;
+}
+
+.cartPage__title {
+	color: var(--main);
+}
