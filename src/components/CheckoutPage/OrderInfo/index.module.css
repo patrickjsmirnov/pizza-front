@@ -1,8 +1,14 @@
 .orderInfo {
-	padding: 20px 10px 30px 30px;
+	padding: 30px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
 	border-radius: 8px;
-	width: 300px;
+	max-width: 400px;
+	width: 100%;
+}
+
+.orderInfo__title {
+	margin: 0 auto 15px;
+	font-weight: 600;
 }
 
 .orderInfo__list {
@@ -12,7 +18,7 @@
 }
 
 .orderInfo__item {
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -34,4 +40,10 @@
 .orderInfo__item__qty {
 	font-size: 13px;
 	color: var(--grey-97);
+}
+
+.orderInfo__delivery {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--main);
 }

@@ -1,3 +1,28 @@
 .checkoutPage {
 
 }
+
+.checkoutPage__content {
+	display: flex;
+	align-items: flex-start;
+	max-width: 800px;
+	width: 100%;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding-top: 40px;
+}
+
+.checkoutPage__title {
+
+}
+
+.checkoutPage__form {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin-right: 20px;
+}
+
+.checkoutPage__form .checkoutPage__input {
+	margin: 10px;
+}

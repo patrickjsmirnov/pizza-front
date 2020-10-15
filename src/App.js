@@ -27,6 +27,7 @@ function App() {
             <Route path="/checkout" component={ withRouter(CheckoutPage) }/>
           </Switch>
         </main>
+
       </CurrencyContext.Provider>
     </div>
   );

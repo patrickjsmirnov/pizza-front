@@ -19,7 +19,8 @@ const store = createStore(rootReducer, persistedState, compose(
 
 store.subscribe(() => {
   saveState({
-    cart: store.getState().cart
+    cart: store.getState().cart,
+    user: store.getState().user
   });
 });
 

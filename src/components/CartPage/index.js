@@ -3,6 +3,7 @@ import React, { useEffect, useContext, useMemo } from 'react';
 import {useLocation} from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import { fetchPizza } from "../../redux/actions/pizzas";
 import { addToCart } from "../../redux/actions/cart";
@@ -17,6 +18,12 @@ export default function CartPage(props) {
   const { currency } = useContext(CurrencyContext);
   const count = pizzasInCart.length
   console.log('currency: ', currency)
+
+  const history = useHistory();
+
+  function handleClick() {
+    history.push("/checkout");
+  }
 
   const total = useMemo(() => getTotal(pizzasInCart), [pizzasInCart])
 
@@ -41,6 +48,10 @@ export default function CartPage(props) {
       </ul>
 
       <p>Total: {`${currency.sign} ${total}`}</p>
+
+      <Button onClick={ handleClick } variant="contained" color="secondary">
+        Proceed to Checkout
+      </Button>
 
     </div>
   )
