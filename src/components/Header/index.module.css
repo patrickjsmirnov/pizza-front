@@ -4,5 +4,19 @@
     display: flex;
     align-items: center;
     padding: 5px 20px;
-    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+
+.header__cart {
+    color: var(--main);
+    margin: 0 20px;
+}
+
+.header__menu__wrapper {
+    margin-right: auto;
+}
+
+.header__login__wrapper {
+    margin-right: auto;
 }

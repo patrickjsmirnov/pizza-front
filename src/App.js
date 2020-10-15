@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Switch, withRouter} from "react-router-dom";
+import React, { useState } from 'react';
+import {Route, Switch, withRouter} from "react-router-dom";
 import PizzasList from "./components/PizzasList";
 import PizzaDetailPage from "./components/PizzaDetailPage";
 import Header from "./components/Header";
 import CartPage from "./components/CartPage";
 import CheckoutPage from "./components/CheckoutPage";
+import OrdersPage from "./components/OrdersPage";
 import { CurrencyContext, currencies } from "./context/currencyContext";
 
-function App() {
+const App = () => {
   const [currency, setCurrency] = useState(currencies.usd);
 
   function toggleCurrency(currency) {
@@ -25,6 +26,7 @@ function App() {
             <Route path={`/pizza/:id`} component={ withRouter(PizzaDetailPage) }/>
             <Route path="/cart" component={ withRouter(CartPage) }/>
             <Route path="/checkout" component={ withRouter(CheckoutPage) }/>
+            <Route path="/orders" component={ withRouter(OrdersPage) }/>
           </Switch>
         </main>
 
