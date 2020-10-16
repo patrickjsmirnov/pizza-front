@@ -4,6 +4,7 @@
 	border-radius: 8px;
 	max-width: 400px;
 	width: 100%;
+	color: var(--main);
 }
 
 .orderInfo__title {
@@ -34,7 +35,6 @@
 .orderInfo__item__name {
 	font-size: 14px;
 	font-weight: 600;
-	color: var(--main);
 }
 
 .orderInfo__item__qty {
@@ -45,5 +45,17 @@
 .orderInfo__delivery {
 	font-size: 14px;
 	font-weight: 600;
-	color: var(--main);
 }
+
+.orderInfo__item__price {
+	font-weight: 700;
+}
+
+.orderInfo__item__delivery {
+	margin-top: 15px;
+}
+
+.orderInfo__item__total {
+	margin-top: 20px;
+}
+

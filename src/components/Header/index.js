@@ -1,25 +1,27 @@
 import styles from './index.module.css'
 import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
 import {CurrencyContext} from '../../context/currencyContext'
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import HeaderMenu from "../HeaderMenu";
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import HeaderMenu from "./HeaderMenu";
+import HeaderCart from "./HeaderCart";
+import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
-    minWidth: 80,
+    minWidth: 60,
   }
 }));
 
 const Header = () => {
   const { toggleCurrency, currency } = useContext(CurrencyContext);
   const classes = useStyles();
+  const history = useHistory()
 
   function handleChange(event) {
     toggleCurrency(event.target.value)
@@ -30,12 +32,18 @@ const Header = () => {
 
       <div className={ styles.header__menu__wrapper }>
         <HeaderMenu/>
+
+        <Button
+          onClick={ () => history.push('/') }
+          color="base"
+        >
+          All Pizza
+        </Button>
       </div>
 
-      <Link to="/cart">
-        <ShoppingCartIcon className={ styles.header__cart }/>
-      </Link>
 
+
+      <HeaderCart/>
 
       <FormControl className={classes.formControl}>
         <Select

@@ -23,6 +23,18 @@
 	margin-right: 20px;
 }
 
+.checkoutPage__errors {
+	display: flex;
+	flex-direction: column;
+	color: var(--red);
+	font-size: 13px;
+	padding: 5px;
+}
+
+.checkoutPage__errors span {
+	margin-bottom: 3px;
+}
+
 .checkoutPage__form .checkoutPage__input {
 	margin: 10px;
 }

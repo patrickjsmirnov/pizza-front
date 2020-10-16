@@ -1,7 +1,7 @@
 import styles from './index.module.css'
 import React, { memo } from 'react';
 
-const OrderInfo = ({ pizzasInCart, total, currency }) => (
+const OrderInfo = ({ pizzasInCart, total, currency, deliveryCost }) => (
   <div className={ styles.orderInfo }>
     <h2 className={ styles.orderInfo__title }>Your Order</h2>
     <ul className={ styles.orderInfo__list }>
@@ -9,19 +9,26 @@ const OrderInfo = ({ pizzasInCart, total, currency }) => (
         <li className={ styles.orderInfo__item } key={ pizza.id }>
           <div className={ styles.orderInfo__item__info }>
             <span className={ styles.orderInfo__item__name }>{pizza.name}</span>
-            <span className={ styles.orderInfo__item__qty }>QTY: {pizza.qty}</span>
+            <span className={ styles.orderInfo__item__qty }>Items: {pizza.qty}</span>
           </div>
-          <span>{currency.sign}{pizza[`price_${currency.name}`]}</span>
+          <span className={ styles.orderInfo__item__price }>
+            {currency.sign}{pizza[`price_${currency.name}`] * pizza.qty}
+          </span>
         </li>
       ))}
-      <li className={ styles.orderInfo__item } key={ 1000 }>
+
+      <li className={ `${styles.orderInfo__item} ${styles.orderInfo__item__delivery}` } key={ 1000 }>
         <span className={ styles.orderInfo__delivery }>Delivery</span>
-        <span>{currency.sign}{currency.value === 0 ? 20 : 15}</span>
+        <span className={ styles.orderInfo__item__price }>
+          {currency.sign}{deliveryCost}
+        </span>
       </li>
 
-      <li className={ styles.orderInfo__item } key={ 1001 }>
+      <li className={ `${styles.orderInfo__item} ${styles.orderInfo__item__total}` } key={ 1001 }>
         <span className={ styles.orderInfo__delivery }>Total</span>
-        <span>{currency.sign}{total}</span>
+        <span className={ styles.orderInfo__item__price }>
+          {currency.sign}{total}
+        </span>
       </li>
     </ul>
   </div>

@@ -1,4 +1,8 @@
-import { GET_ORDERS_IS_SUCCESS, GET_ORDERS_IS_FETCHING, GET_ORDERS_IS_FAILURE } from "../actionTypes";
+import {
+  CREATE_ORDER_IS_SUCCESS,
+  CREATE_ORDER_IS_FETCHING,
+  CREATE_ORDER_IS_FAILURE
+} from "../actionTypes";
 
 const initialState = {
   state: {
@@ -9,11 +13,10 @@ const initialState = {
   data: {}
 }
 
-export const orderReducer = (state = initialState, action) => {
+export const createOrderReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ORDERS_IS_FETCHING:
+    case CREATE_ORDER_IS_FETCHING:
       return {
-        ...state,
         state: {
           isFetching: true,
           isSuccess: false,
@@ -22,15 +25,24 @@ export const orderReducer = (state = initialState, action) => {
         data: {}
       }
 
-    case GET_ORDERS_IS_SUCCESS:
+    case CREATE_ORDER_IS_SUCCESS:
       return {
-        ...state,
         state: {
           isFetching: false,
           isSuccess: true,
           isFailure: false
         },
         data: action.payload
+      }
+
+    case CREATE_ORDER_IS_FAILURE:
+      return {
+        state: {
+          isFetching: false,
+          isSuccess: false,
+          isFailure: true
+        },
+        data: {}
       }
 
     default:

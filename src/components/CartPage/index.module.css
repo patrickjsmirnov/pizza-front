@@ -2,11 +2,33 @@
 
 }
 
-.cartPage__list {
+.cartPage__content {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.cartPage__list {
+	width: 100%;
 }
 
 .cartPage__title {
 	color: var(--main);
+}
+
+.cartPage__total {
+	text-align: right;
+	max-width: 800px;
+	width: 100%;
+	color: var(--main);
+	font-size: 16px;
+	font-weight: 600;
+	margin: 10px 0;
+}
+
+.cartPage .cartPage__checkout_btn {
+	margin-left: auto;
 }

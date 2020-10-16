@@ -1,4 +1,4 @@
-import {ADD_TO_CART, CHANGE_QTY, DELETE_FROM_CART} from "../actionTypes";
+import {ADD_TO_CART, CHANGE_QTY, DELETE_FROM_CART, EMPTY_CART} from "../actionTypes";
 
 export function addToCart(pizza) {
   return {
@@ -19,5 +19,11 @@ export function changeQty({ id, qty }) {
     type: CHANGE_QTY,
     id,
     qty
+  }
+}
+
+export function emptyCart() {
+  return {
+    type: EMPTY_CART
   }
 }

@@ -1,20 +1,17 @@
 .header {
-    background-color: #ef9a9a;
+    background-color: #f8bbd0;
     width: 100%;
     display: flex;
     align-items: center;
     padding: 5px 20px;
     justify-content: flex-end;
-}
-
-
-.header__cart {
-    color: var(--main);
-    margin: 0 20px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
 .header__menu__wrapper {
     margin-right: auto;
+    display: flex;
+    align-items: center;
 }
 
 .header__login__wrapper {

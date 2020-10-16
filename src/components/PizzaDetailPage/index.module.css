@@ -22,11 +22,21 @@
 .productPage__description {
     color: var(--main);
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    line-height: 1.7;
 }
 
 .productPage__cost {
     color: var(--main);
     font-weight: 600;
     margin-bottom: 15px;
+}
+
+.productPage .productPage__cart_icon {
+    margin-right: 5px;
+    width: 17px;
+}
+
+.productPage__btn_view_cart {
+    margin-top: 10px;
 }

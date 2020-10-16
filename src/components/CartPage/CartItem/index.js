@@ -18,17 +18,14 @@ import {CurrencyContext} from "../../../context/currencyContext";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(3),
-    minWidth: 60,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(1),
-  },
+    margin: theme.spacing(1),
+    minWidth: 40,
+  }
 }));
 
-const CartItem = ({ id, name, url, description, price_usd, price_eur, qty }) => {
+const CartItem = ({ id, name, url, description, priceUsd, priceEur, qty }) => {
   const { currency } = useContext(CurrencyContext);
-  const price = currency.value === 0 ? price_usd : price_eur
+  const price = currency.value === 0 ? priceUsd * qty : priceEur * qty
   const dispatch = useDispatch()
   const classes = useStyles();
 
@@ -63,6 +60,10 @@ const CartItem = ({ id, name, url, description, price_usd, price_eur, qty }) => 
           <MenuItem value={4}>4</MenuItem>
           <MenuItem value={5}>5</MenuItem>
           <MenuItem value={6}>6</MenuItem>
+          <MenuItem value={7}>7</MenuItem>
+          <MenuItem value={8}>8</MenuItem>
+          <MenuItem value={9}>9</MenuItem>
+          <MenuItem value={10}>10</MenuItem>
         </Select>
       </FormControl>
 

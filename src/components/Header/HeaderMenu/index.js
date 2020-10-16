@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {GoogleLogin, GoogleLogout} from 'react-google-login';
-import {deleteUser, saveUser} from "../../redux/actions/user";
+import {deleteUser, saveUser} from "../../../redux/actions/user";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -51,8 +51,9 @@ const HeaderMenu = () => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => {history.push("/"); handleClose() }}>Catalog</MenuItem>
+        <MenuItem onClick={() => {history.push("/"); handleClose() }}>All Pizza</MenuItem>
         <MenuItem onClick={() => {history.push("/cart"); handleClose() }}>Cart</MenuItem>
+        <MenuItem onClick={() => {history.push("/checkout"); handleClose() }}>Checkout</MenuItem>
 
         {user.email && (
           <MenuItem onClick={() => {history.push("/orders"); handleClose() }}>My orders</MenuItem>

@@ -1,22 +1,12 @@
 import styles from './index.module.css'
 import React, { useContext, memo } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-
-
 import { CurrencyContext } from '../../context/currencyContext'
+import { Link } from "react-router-dom";
 
-import {
-  Link,
-  withRouter
-} from "react-router-dom";
-
-
-const PizzaCard = ({ id, name, description, url, price_usd, price_eur }) => {
+const PizzaCard = ({ id, name, description, url, priceUsd, priceEur }) => {
   const { currency } = useContext(CurrencyContext);
   const { sign, value } = currency
-  const cost = value === 0 ? price_usd : price_eur
-
+  const cost = value === 0 ? priceUsd : priceEur
 
   return (
       <Link to={ `/pizza/${id}` } key={ id } className={styles.pizzaCard}>

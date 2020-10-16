@@ -1,0 +1,22 @@
+.headerCart {
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	margin: 0 20px;
+}
+
+.headerCart__label {
+	color: var(--main);
+	font-weight: 600;
+	margin-right: 3px;
+}
+
+.headerCart__icon {
+	color: var(--main);
+	margin: 0;
+}
+
+.headerCart__count {
+	color: var(--main);
+	text-decoration: none;
+}

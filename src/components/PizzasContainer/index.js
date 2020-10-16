@@ -1,20 +1,15 @@
 import React from 'react';
-// import './App.css';
-import { connect } from 'react-redux'
-
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   withRouter
 } from "react-router-dom";
 
 import PizzasList from "../PizzasList";
 import PizzaDetailPage from '../PizzaDetailPage';
 
-function PizzasContainer(props) {
-  console.log('props: ', props)
+const PizzasContainer = () => {
   return (
     <div className="pizzas-menu">
       <Router>

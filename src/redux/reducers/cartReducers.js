@@ -1,4 +1,4 @@
-import {ADD_TO_CART, CHANGE_QTY, DELETE_FROM_CART} from "../actionTypes";
+import {ADD_TO_CART, CHANGE_QTY, DELETE_FROM_CART, EMPTY_CART} from "../actionTypes";
 
 const initialState = {
   pizzas: {}
@@ -41,6 +41,9 @@ export const cartReducer = (state = initialState, action) => {
       }
     }
 
+    case EMPTY_CART: {
+      return initialState
+    }
 
     default:
       return state

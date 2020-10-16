@@ -1,30 +1,19 @@
 import styles from './index.module.css'
-import React, { useEffect, useContext, useMemo } from 'react';
-import {useLocation} from "react-router-dom";
+import React, { useContext, useMemo } from 'react';
 import Button from '@material-ui/core/Button';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { fetchPizza } from "../../redux/actions/pizzas";
-import { addToCart } from "../../redux/actions/cart";
 import {CurrencyContext} from "../../context/currencyContext";
 
 import CartItem from "./CartItem";
 
-export default function CartPage(props) {
-  const dispatch = useDispatch()
+const CartPage = props => {
   let pizzasInCart = useSelector(state => state.cart.pizzas)
   pizzasInCart = Object.values(pizzasInCart)
   const { currency } = useContext(CurrencyContext);
   const count = pizzasInCart.length
-  console.log('currency: ', currency)
-
   const history = useHistory();
-
-  function handleClick() {
-    history.push("/checkout");
-  }
-
   const total = useMemo(() => getTotal(pizzasInCart), [pizzasInCart])
 
   function getTotal(pizzas) {
@@ -32,27 +21,43 @@ export default function CartPage(props) {
   }
 
   if (!count) {
-    return (
-      <h1 className={ styles.cartPage__title }>Cart is Empty!</h1>
-    )
+    return <h1 className={ styles.cartPage__title }>Cart is Empty!</h1>
   }
-
 
   return (
     <div className={ styles.cartPage }>
       <h1 className={ styles.cartPage__title }>Cart</h1>
-      <ul className={ styles.cartPage__list }>
-        {pizzasInCart.map(pizza => (
-          <CartItem { ...pizza } key={ pizza.id } />
-        ))}
-      </ul>
 
-      <p>Total: {`${currency.sign} ${total}`}</p>
+      <div className={ styles.cartPage__content }>
+        <ul className={ styles.cartPage__list }>
+          {pizzasInCart.map(pizza => (
+            <CartItem
+              name={ pizza.name }
+              id={ pizza.id }
+              description={ pizza.description }
+              url={ pizza.url }
+              priceUsd={ pizza.price_usd }
+              priceEur={ pizza.price_eur }
+              key={ pizza.id }
+              qty={ pizza.qty }
+            />
+          ))}
+        </ul>
 
-      <Button onClick={ handleClick } variant="contained" color="secondary">
-        Proceed to Checkout
-      </Button>
+        <p className={ styles.cartPage__total }>Total: {`${currency.sign} ${total}`}</p>
+
+        <Button
+          className={ styles.cartPage__checkout_btn }
+          onClick={ () => history.push("/checkout") }
+          variant="contained"
+          color="primary"
+        >
+          Proceed to Checkout
+        </Button>
+      </div>
 
     </div>
   )
 }
+
+export default CartPage
