@@ -11,10 +11,13 @@ import { loadState, saveState } from "./localStorage";
 
 const persistedState = loadState();
 
+const devtools = process.env.NODE_ENV === 'development' && window && window.__REDUX_DEVTOOLS_EXTENSION__
+  ? window.__REDUX_DEVTOOLS_EXTENSION__()
+  : x => x
 
 const store = createStore(rootReducer, persistedState, compose(
   applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  devtools
 ))
 
 store.subscribe(() => {
