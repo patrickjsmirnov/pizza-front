@@ -8,7 +8,7 @@ export function fetchPizzas() {
       payload: []
     })
 
-    const response = await fetch('http://localhost:3003/pizzas')
+    const response = await fetch('http://81.163.28.64:3010/pizzas')
     const pizzas = await response.json()
 
     dispatch({
@@ -27,7 +27,7 @@ export function fetchPizza(id) {
       payload: {}
     })
 
-    const response = await fetch(`http://localhost:3003/pizzas/${id}`)
+    const response = await fetch(`http://81.163.28.64:3010/pizzas/${id}`)
     const pizza = await response.json()
 
     dispatch({
