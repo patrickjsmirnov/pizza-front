@@ -1,5 +1,6 @@
 import styles from './index.module.css'
 import React, { memo } from 'react';
+import PropTypes from 'prop-types'
 
 const OrderInfo = ({ pizzasInCart, total, currency, deliveryCost }) => (
   <div className={ styles.orderInfo }>
@@ -34,5 +35,11 @@ const OrderInfo = ({ pizzasInCart, total, currency, deliveryCost }) => (
   </div>
 )
 
-
 export default memo(OrderInfo)
+
+OrderInfo.propTypes = {
+  total: PropTypes.number.isRequired,
+  pizzasInCart: PropTypes.array.isRequired,
+  currency: PropTypes.string.isRequired,
+  deliveryCost: PropTypes.number.isRequired
+}

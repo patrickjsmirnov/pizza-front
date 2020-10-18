@@ -40,3 +40,10 @@
 .productPage__btn_view_cart {
     margin-top: 10px;
 }
+
+
+@media (max-width: 724px) {
+    .productPage {
+        flex-direction: column;
+    }
+}

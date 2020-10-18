@@ -49,7 +49,7 @@ const CheckoutPage = () => {
 
   return (
     <div className={ styles.checkoutPage }>
-      <h1 className={ styles.checkoutPage__title }>Checkout</h1>
+      <h1 className="main-title">Checkout</h1>
 
       <OrderCreatedModal isOpen={ isOpen }/>
 
@@ -81,7 +81,9 @@ const CheckoutPage = () => {
             const orderData = {
               ...values,
               pizzas: pizzasInCart,
-              user_email: user.email || ''
+              user_email: user.email || '',
+              total,
+              currency: currency.name
             }
 
             handleCompleteOrder(orderData)
@@ -113,7 +115,6 @@ const CheckoutPage = () => {
                 className={ styles.checkoutPage__input }
                 label="Email"
                 variant="outlined"
-                required={ true }
                 name="email"
                 onChange={ handleChange }
                 value={values.email}
@@ -144,6 +145,17 @@ const CheckoutPage = () => {
                 value={values.address}
                 onBlur={handleBlur}
                 key={ 4 }
+              />
+
+              <TextField
+                className={ styles.checkoutPage__input }
+                label="Comment"
+                variant="outlined"
+                name="comment"
+                onChange={ handleChange }
+                value={values.comment}
+                onBlur={handleBlur}
+                key={ 6 }
               />
 
               <div className={ styles.checkoutPage__errors }>

@@ -16,13 +16,13 @@ const OrdersPage = () => {
 
   if (!orders.length) {
     return (
-      <h1>No orders</h1>
+      <h1 className="main-title">No orders</h1>
     )
   }
 
   return (
     <div className={ styles.cartPage }>
-      <h1>My Orders</h1>
+      <h1 className="main-title">My Orders</h1>
 
       <ul>
         {orders.map(order => (
@@ -36,6 +36,8 @@ const OrdersPage = () => {
             pizzasByOrder={ pizzasInOrder[order.order_id] }
             pizzas={ pizzas }
             qty={ pizzas.qty }
+            total={ order.total }
+            currency={ order.currency }
           />
         ))}
       </ul>

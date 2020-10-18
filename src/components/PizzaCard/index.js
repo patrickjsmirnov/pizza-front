@@ -2,6 +2,7 @@ import styles from './index.module.css'
 import React, { useContext, memo } from 'react';
 import { CurrencyContext } from '../../context/currencyContext'
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 const PizzaCard = ({ id, name, description, url, priceUsd, priceEur }) => {
   const { currency } = useContext(CurrencyContext);
@@ -19,3 +20,12 @@ const PizzaCard = ({ id, name, description, url, priceUsd, priceEur }) => {
 }
 
 export default memo(PizzaCard)
+
+PizzaCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  priceUsd: PropTypes.number.isRequired,
+  priceEur: PropTypes.number.isRequired
+}

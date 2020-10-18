@@ -1,4 +1,10 @@
-import {PIZZA_DETAIL_IS_FAILURE, PIZZA_DETAIL_IS_SUCCESS, PIZZAS_IS_FETCHING, PIZZAS_IS_SUCCESS} from "../actionTypes";
+import {
+  PIZZA_DETAIL_IS_FAILURE,
+  PIZZA_DETAIL_IS_SUCCESS,
+  PIZZAS_IS_FETCHING,
+  PIZZAS_IS_SUCCESS
+} from "../actionTypes";
+import { HOST } from "../../config/routes";
 
 export function fetchPizzas() {
 
@@ -8,7 +14,7 @@ export function fetchPizzas() {
       payload: []
     })
 
-    const response = await fetch('http://81.163.28.64:3010/pizzas')
+    const response = await fetch(`${HOST}/pizzas`)
     const pizzas = await response.json()
 
     dispatch({
@@ -27,7 +33,7 @@ export function fetchPizza(id) {
       payload: {}
     })
 
-    const response = await fetch(`http://81.163.28.64:3010/pizzas/${id}`)
+    const response = await fetch(`${HOST}/pizzas/${id}`)
     const pizza = await response.json()
 
     dispatch({

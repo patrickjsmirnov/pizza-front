@@ -4,6 +4,7 @@ import {
   CREATE_ORDER_IS_SUCCESS,
   GET_ORDERS_IS_FETCHING, GET_ORDERS_IS_SUCCESS
 } from "../actionTypes";
+import { HOST } from "../../config/routes";
 
 export function createOrder(data) {
 
@@ -13,7 +14,7 @@ export function createOrder(data) {
       payload: []
     })
 
-    const response = await fetch('http://localhost:3003/orders/create', {
+    const response = await fetch(`${HOST}/orders/create`, {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',
@@ -44,7 +45,7 @@ export function getOrdersByUser(email) {
       payload: []
     })
 
-    const response = await fetch('http://localhost:3003/orders/get-order-by-user', {
+    const response = await fetch(`${HOST}/orders/get-order-by-user`, {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',

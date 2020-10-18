@@ -64,3 +64,8 @@ ul {
     transform: translateY(0px)
   }
 }
+
+.main-title {
+  color: var(--main);
+  margin: 10px auto 20px;
+}

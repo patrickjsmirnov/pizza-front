@@ -41,8 +41,6 @@ const Header = () => {
         </Button>
       </div>
 
-
-
       <HeaderCart/>
 
       <FormControl className={classes.formControl}>

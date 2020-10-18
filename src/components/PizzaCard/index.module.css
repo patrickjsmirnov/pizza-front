@@ -15,17 +15,25 @@
 
 .pizzaCard__img {
     width: 100%;
+    transition: top 150ms ease-out 0s;
+    top: 0;
+    position: relative;
+}
+
+.pizzaCard__img:hover {
+    top: 3px;
 }
 
 .pizzaCard__name {
     font-size: 14px;
     margin-bottom: 10px;
-    color: #30344a;
+    color: var(--main);
+    font-weight: 600;
 }
 
 .pizzaCard__description {
-    font-size: 12px;
-    color: #979aa8;
+    font-size: 14px;
+    color: var(--grey-97);
     margin-bottom: 10px;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -34,8 +42,8 @@
 }
 
 .pizzaCard__cost {
-    color: #30344a;
-    font-weight: 600;
+    color: var(--main);
+    font-weight: 700;
     font-size: 14px;
 }
 

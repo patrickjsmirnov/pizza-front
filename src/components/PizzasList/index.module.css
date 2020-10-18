@@ -3,3 +3,12 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.pizzasList__actions {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}

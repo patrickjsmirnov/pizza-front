@@ -1,19 +1,13 @@
 import styles from './index.module.css'
-import React, { useEffect, useContext, memo } from 'react';
-import {useLocation} from "react-router-dom";
-import Button from '@material-ui/core/Button';
-import { useDispatch, useSelector } from "react-redux";
+import React, { useContext, memo } from 'react';
+import PropTypes from 'prop-types'
+import { useDispatch } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
 import DeleteIcon from '@material-ui/icons/Delete';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
 import { deleteFromCart, changeQty } from "../../../redux/actions/cart";
-
 import {CurrencyContext} from "../../../context/currencyContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +22,6 @@ const CartItem = ({ id, name, url, description, priceUsd, priceEur, qty }) => {
   const price = currency.value === 0 ? priceUsd * qty : priceEur * qty
   const dispatch = useDispatch()
   const classes = useStyles();
-
 
   function handleDeleteFromCart(event) {
     event.preventDefault()
@@ -74,3 +67,13 @@ const CartItem = ({ id, name, url, description, priceUsd, priceEur, qty }) => {
 }
 
 export default memo(CartItem)
+
+CartItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  priceUsd: PropTypes.number.isRequired,
+  priceEur: PropTypes.number.isRequired,
+  qty: PropTypes.number.isRequired
+}

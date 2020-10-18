@@ -59,7 +59,6 @@ const HeaderMenu = () => {
           <MenuItem onClick={() => {history.push("/orders"); handleClose() }}>My orders</MenuItem>
         )}
 
-
         {!user.email && (
           <GoogleLogin
             clientId="536577472648-04u99j69daptpi6rhfmli25djhlnj5f3.apps.googleusercontent.com"

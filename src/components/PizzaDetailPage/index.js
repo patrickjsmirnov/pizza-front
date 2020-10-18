@@ -8,8 +8,9 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { fetchPizza } from "../../redux/actions/pizzas";
 import { addToCart } from "../../redux/actions/cart";
 import {CurrencyContext} from "../../context/currencyContext";
+import PizzaRating from "../PizzaRating";
 
-const PizzaDetailPage = props => {
+const PizzaDetailPage = () => {
   const location = useLocation()
   const id = location.pathname.split('/')[2]
   const dispatch = useDispatch()
@@ -58,6 +59,8 @@ const PizzaDetailPage = props => {
           <p className={ styles.productPage__description }>
             {pizza.description}
           </p>
+          <PizzaRating value={ pizza.rating }/>
+
           <div className={ styles.productPage__cost }>
             <span>Price: </span>
             {currency.sign}

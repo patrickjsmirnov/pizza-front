@@ -8,7 +8,7 @@ import {CurrencyContext} from "../../context/currencyContext";
 
 import CartItem from "./CartItem";
 
-const CartPage = props => {
+const CartPage = () => {
   let pizzasInCart = useSelector(state => state.cart.pizzas)
   pizzasInCart = Object.values(pizzasInCart)
   const { currency } = useContext(CurrencyContext);
@@ -26,7 +26,7 @@ const CartPage = props => {
 
   return (
     <div className={ styles.cartPage }>
-      <h1 className={ styles.cartPage__title }>Cart</h1>
+      <h1 className="main-title">Cart</h1>
 
       <div className={ styles.cartPage__content }>
         <ul className={ styles.cartPage__list }>
