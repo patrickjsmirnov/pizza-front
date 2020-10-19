@@ -9,7 +9,7 @@
 
 
 ### Tech stack
-React, Redux, React-Router, formik, material-ui, date-fns, redux-thunk
+React, Redux, React-Router, formik, material-ui, date-fns, redux-thunk, nginx
 
 ### Demo
 http://81.163.28.64/
