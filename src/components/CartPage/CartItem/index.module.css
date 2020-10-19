@@ -9,6 +9,12 @@
   margin: 20px auto;
 }
 
+.cardItem__link {
+  display: flex;
+  align-content: center;
+  text-decoration: none;
+}
+
 .cardItem__img {
   width: 80px;
 }
@@ -17,6 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   text-align: left;
   margin-left: 15px;
 }
@@ -55,3 +62,13 @@
   color: var(--blue);
 }
 
+
+@media (max-width: 768px) {
+  .cardItem {
+    flex-direction: column
+  }
+
+  .cardItem__price {
+    margin: 0;
+  }
+}

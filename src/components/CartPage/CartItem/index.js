@@ -9,6 +9,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { deleteFromCart, changeQty } from "../../../redux/actions/cart";
 import {CurrencyContext} from "../../../context/currencyContext";
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -34,12 +35,14 @@ const CartItem = ({ id, name, url, description, priceUsd, priceEur, qty }) => {
   }
 
   return (
-    <li to={`/pizza/${id}`} className={ styles.cardItem } key={ id }>
-      <img className={ styles.cardItem__img } src={url} alt=""/>
-      <div className={ styles.cardItem__info }>
-        <p className={ styles.cardItem__name }>{name}</p>
-        <p className={ styles.cardItem__description }>{description}</p>
-      </div>
+    <li className={ styles.cardItem } key={ id }>
+      <Link to={`/pizza/${id}`} className={ styles.cardItem__link }>
+        <img className={ styles.cardItem__img } src={url} alt=""/>
+        <div className={ styles.cardItem__info }>
+          <p className={ styles.cardItem__name }>{name}</p>
+          <p className={ styles.cardItem__description }>{description}</p>
+        </div>
+      </Link>
       <FormControl className={classes.formControl}>
         <Select
           labelId="demo-simple-select-label"

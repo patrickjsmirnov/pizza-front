@@ -14,31 +14,38 @@ export function createOrder(data) {
       payload: []
     })
 
-    const response = await fetch(`${HOST}/orders/create`, {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-      body: JSON.stringify(data)
-    });
+    try {
+      const response = await fetch(`${HOST}/orders/create`, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(data)
+      });
+  
+      const orderStatus = await response.json()
+  
+      dispatch({
+        type: CREATE_ORDER_IS_SUCCESS,
+        payload: orderStatus
+      })
 
-    const orderStatus = await response.json()
-
-    dispatch({
-      type: CREATE_ORDER_IS_SUCCESS,
-      payload: orderStatus
-    })
+    } catch(err) {
+      dispatch({
+        type: CREATE_ORDER_IS_FAILURE,
+        payload: []
+      })
+    }
+    
   }
 }
 
 export function getOrdersByUser(email) {
-  console.log('email: ', email)
-
   return async dispatch => {
     dispatch({
       type: GET_ORDERS_IS_FETCHING,
@@ -59,8 +66,6 @@ export function getOrdersByUser(email) {
     });
 
     const orders = await response.json()
-
-    console.log('orders: ', orders)
 
     dispatch({
       type: GET_ORDERS_IS_SUCCESS,

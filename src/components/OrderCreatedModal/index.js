@@ -52,9 +52,6 @@ const DialogActions = withStyles((theme) => ({
 export default function OrderCreatedModal({isOpen = false}) {
   const [open, setOpen] = useState(isOpen);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
   const handleClose = () => {
     setOpen(false);
   };

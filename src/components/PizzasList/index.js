@@ -20,8 +20,10 @@ const SORTING = {
 const PizzasList = () => {
   const dispatch = useDispatch()
   const pizzas = useSelector(state => state.pizzas.pizzas)
+  const pizzasState = useSelector(state => state.pizzas.state)
   const [sorting, setSorting] = useState(SORTING.PRICE_MIN.value)
   const { currency } = useContext(CurrencyContext);
+  const { isFetching, isSuccess, isFailure } = pizzasState
 
   useEffect(() => {
     dispatch(fetchPizzas())
@@ -51,7 +53,16 @@ const PizzasList = () => {
         />
       </div>
 
-      <div className={ styles.pizzasList }>
+      {isFailure && (
+        <p>Sorry, something went wrong</p>
+      )}
+
+      {isFetching && (
+        <p>Loading...</p>
+      )}
+
+      {isSuccess && (
+        <div className={ styles.pizzasList }>
         {sortingPizzas.map(pizza => (
           <PizzaCard
             key={ pizza.id }
@@ -64,7 +75,7 @@ const PizzasList = () => {
           />
         ))}
       </div>
-
+      )}
     </div>
   )
 }

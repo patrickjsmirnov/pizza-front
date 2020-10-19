@@ -21,7 +21,6 @@ const PizzaDetailPage = () => {
   const { isFetching, isFailure } = state
   const { currency } = useContext(CurrencyContext);
 
-
   // fetch pizza data on mount
   useEffect(() => {
     dispatch(fetchPizza(id))
