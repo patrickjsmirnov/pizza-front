@@ -16,5 +16,6 @@ http://81.163.28.64/
 
 
 ### To do
+- [ ] CI
 - [ ] Clean up
 - [ ] Unit tests
