@@ -9,6 +9,7 @@ import { fetchPizza } from "../../redux/actions/pizzas";
 import { addToCart } from "../../redux/actions/cart";
 import {CurrencyContext} from "../../context/currencyContext";
 import PizzaRating from "../PizzaRating";
+import Spinner from '../Spinner'
 
 const PizzaDetailPage = () => {
   const location = useLocation()
@@ -34,11 +35,7 @@ const PizzaDetailPage = () => {
     history.push('/cart')
   }
 
-  if (isFetching) {
-    return (
-      <span>Loading....</span>
-    )
-  }
+  if (isFetching) return <Spinner/>
 
   if (isFailure) {
     return (

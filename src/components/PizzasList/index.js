@@ -5,6 +5,7 @@ import { fetchPizzas } from "../../redux/actions/pizzas";
 import PizzaCard from "../PizzaCard";
 import PizzasSortSelect from "../PizzasSortSelect";
 import {CurrencyContext} from "../../context/currencyContext";
+import Spinner from '../Spinner'
 
 const SORTING = {
   PRICE_MIN: {
@@ -23,7 +24,7 @@ const PizzasList = () => {
   const pizzasState = useSelector(state => state.pizzas.state)
   const [sorting, setSorting] = useState(SORTING.PRICE_MIN.value)
   const { currency } = useContext(CurrencyContext);
-  const { isFetching, isSuccess, isFailure } = pizzasState
+  const { isFetching = true, isSuccess = false, isFailure } = pizzasState
 
   useEffect(() => {
     dispatch(fetchPizzas())
@@ -45,20 +46,22 @@ const PizzasList = () => {
     <div className="pizzas-menu">
       <h1 className="main-title">All Pizza</h1>
 
-      <div className={ styles.pizzasList__actions }>
-        <PizzasSortSelect
-          value={ sorting }
-          options={ SORTING }
-          setSorting={ setSorting }
-        />
-      </div>
+      {isSuccess && (
+        <div className={ styles.pizzasList__actions }>
+          <PizzasSortSelect
+            value={ sorting }
+            options={ SORTING }
+            setSorting={ setSorting }
+          />
+        </div>
+      )}
 
       {isFailure && (
         <p>Sorry, something went wrong</p>
       )}
 
       {isFetching && (
-        <p>Loading...</p>
+        <Spinner/>
       )}
 
       {isSuccess && (

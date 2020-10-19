@@ -40,6 +40,8 @@ export function createOrder(data) {
         type: CREATE_ORDER_IS_FAILURE,
         payload: []
       })
+
+      throw 'Server Error! Orders is not created!';
     }
     
   }

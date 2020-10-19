@@ -1,3 +1,4 @@
+import style from './index.module.css'
 import React, { useState, useEffect } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -8,6 +9,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+import { currencies } from "../../context/currencyContext";
 
 const styles = (theme) => ({
   root: {
@@ -49,7 +51,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function OrderCreatedModal({isOpen = false}) {
+export default function OrderCreatedModal({isOpen = false, createOrderData}) {
   const [open, setOpen] = useState(isOpen);
 
   const handleClose = () => {
@@ -62,15 +64,38 @@ export default function OrderCreatedModal({isOpen = false}) {
 
   return (
     <div>
-
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           Good Choice!
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            <p>Your order is successfully completed!</p>
-            <p>Enjoy your pizza and have a nice day!</p>
+            <h2 className={ style.orderModal__title }>Order Details</h2>
+            <ul className={ style.orderModal__list }>
+              <li className={ style.orderModal__item }>
+                <div>Name</div>
+                <div>{createOrderData.name}</div>
+              </li>
+              <li className={ style.orderModal__item }>
+                <div>Address</div>
+                <div>{createOrderData.address}</div>
+              </li>
+              <li className={ style.orderModal__item }>
+                <div>Email</div>
+                <div>{createOrderData.order_email}</div>
+              </li>
+              <li className={ style.orderModal__item }>
+                <div>Phone</div>
+                <div>{createOrderData.phone}</div>
+              </li>
+              <li className={ style.orderModal__item }>
+                <div>Total</div>
+                <div>{`${currencies[createOrderData.currency]?.sign}${createOrderData.total}`}</div>
+              </li>
+            </ul>
+
+            <p className={ style.orderModal__text }>Your order is successfully completed!</p>
+            <p className={ style.orderModal__text }>Enjoy your pizza and have a nice day!</p>
           </Typography>
         </DialogContent>
         <DialogActions>

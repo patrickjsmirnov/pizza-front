@@ -1,0 +1,37 @@
+.orderModal {
+  color: var(--main);
+}
+
+.orderModal__title {
+  color: var(--main);
+  margin-bottom: 15px;
+}
+
+.orderModal__list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.orderModal__item {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  color: var(--main);
+}
+
+.orderModal__item div:first-child {
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.orderModal__item div:nth-child(2) {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.orderModal__text {
+  text-align: center;
+  color: var(--main);
+}
