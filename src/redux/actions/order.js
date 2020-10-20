@@ -15,7 +15,7 @@ export function createOrder(data) {
     })
 
     try {
-      const response = await fetch(`${HOST}/orders/create`, {
+      const response = await fetch(`${HOST}/api/orders/create`, {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',

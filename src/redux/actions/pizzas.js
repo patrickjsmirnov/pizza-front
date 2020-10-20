@@ -17,7 +17,7 @@ export function fetchPizzas() {
     })
     
     try {
-      const response = await fetch(`${HOST}/pizzas`)
+      const response = await fetch(`${HOST}/api/pizzas`)
       const pizzas = await response.json()
 
       dispatch({
@@ -43,7 +43,7 @@ export function fetchPizza(id) {
     })
 
     try {
-      const response = await fetch(`${HOST}/pizzas/${id}`)
+      const response = await fetch(`${HOST}/api/pizzas/${id}`)
       const pizza = await response.json()
 
       dispatch({
