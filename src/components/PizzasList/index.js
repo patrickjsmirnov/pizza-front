@@ -24,7 +24,7 @@ const PizzasList = () => {
   const pizzasState = useSelector(state => state.pizzas.state)
   const [sorting, setSorting] = useState(SORTING.PRICE_MIN.value)
   const { currency } = useContext(CurrencyContext);
-  const { isFetching = true, isSuccess = false, isFailure } = pizzasState
+  const { isFetching, isSuccess, isFailure } = pizzasState
 
   useEffect(() => {
     dispatch(fetchPizzas())

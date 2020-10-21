@@ -15,7 +15,7 @@ const currencies = {
 
 const CurrencyContext = React.createContext({
   currency: currencies.usd,
-  setCurrency: () => {}
+  toggleCurrency: () => {}
 });
 
 export { currencies, CurrencyContext }

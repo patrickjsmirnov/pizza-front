@@ -22,11 +22,11 @@ const App = () => {
         <Header/>
         <main className="App-main">
           <Switch>
-            <Route exact={ true } path="/" component={ withRouter(PizzasList) }/>
-            <Route path={`/pizza/:id`} component={ withRouter(PizzaDetailPage) }/>
-            <Route path="/cart" component={ withRouter(CartPage) }/>
-            <Route path="/checkout" component={ withRouter(CheckoutPage) }/>
-            <Route path="/orders" component={ withRouter(OrdersPage) }/>
+            <Route exact={ true } path="/" component={ PizzasList }/>
+            <Route path={`/pizza/:id`} component={ PizzaDetailPage }/>
+            <Route path="/cart" component={ CartPage }/>
+            <Route path="/checkout" component={ CheckoutPage }/>
+            <Route path="/orders" component={ OrdersPage }/>
           </Switch>
         </main>
 
