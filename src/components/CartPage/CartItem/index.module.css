@@ -71,4 +71,8 @@
   .cardItem__price {
     margin: 0;
   }
+
+  .cardItem__description {
+    width: 200px;
+  }
 }

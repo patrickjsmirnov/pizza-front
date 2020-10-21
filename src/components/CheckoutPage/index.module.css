@@ -38,3 +38,14 @@
 .checkoutPage__form .checkoutPage__input {
 	margin: 10px;
 }
+
+@media (max-width: 768px) {
+  .checkoutPage__content {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .checkoutPage__form {
+    width: 100%;
+  }
+}
