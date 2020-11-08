@@ -12,8 +12,7 @@
 React, Redux, React-Router, formik, material-ui, date-fns, redux-thunk, nginx
 
 ### Demo
-http://81.163.28.64/  
-later it will be available on https://smirnovds.dev
+http://81.163.28.64/ 
 
 
 ### To do
